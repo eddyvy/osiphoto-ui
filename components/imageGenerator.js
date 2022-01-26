@@ -14,7 +14,7 @@ const ImageGenerator = ({imageNumber, handleSelect, selection}) => {
             width="64"
             height="64"
             onClick={handleSelect}
-            className={(selection === `image_${idx}`) && 'border border-primary border-3'}
+            className={(selection === `image_${idx}`) ? 'border border-primary border-3' : ''}
           />)
         })
       }

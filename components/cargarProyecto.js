@@ -31,7 +31,7 @@ const CargarProyecto = ({setScreen}) => {
             <tr
               id='pro1'
               onClick={handleSelect}
-              className={`p-1 ${(selection === 'pro1') && 'border border-primary border-3'}`}
+              className={`p-1 ${(selection === 'pro1') ? 'border border-primary border-3' : ''}`}
             >
               <td>Proyecto Secreto</td>
               <td>01/01/2022</td>

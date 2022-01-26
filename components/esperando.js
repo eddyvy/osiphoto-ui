@@ -2,7 +2,7 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 
 const Esperando = ({setScreen, loadError = false}) => {
-
+  const [ noChange, setNochange ] = useState('nothing')
   const [ message, setMessage ] = useState('Conectando con el servidor')
 
   const sleep = async(ms) => {
@@ -46,9 +46,9 @@ const Esperando = ({setScreen, loadError = false}) => {
     setScreen(loadError ? 'respuestaIncorrecta' : 'respuestaCorrecta')
   }
 
-  useEffect(() => {
-    todoElEfecto()
-  })
+
+  todoElEfecto()
+
 
   return (
     <>
