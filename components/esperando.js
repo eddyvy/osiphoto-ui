@@ -46,9 +46,9 @@ const Esperando = ({setScreen, loadError = false}) => {
     setScreen(loadError ? 'respuestaIncorrecta' : 'respuestaCorrecta')
   }
 
-
-  todoElEfecto()
-
+  useEffect(() => {
+    todoElEfecto()
+  }, [noChange])
 
   return (
     <>
