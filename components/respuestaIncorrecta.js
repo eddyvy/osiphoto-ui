@@ -15,7 +15,7 @@ const RepuestaIncorrecta = ({setScreen}) => {
           onClick={() => setScreen('home')}
         ><BookOpen size={20} className='pb-1'/></button>
       </div>
-      <h3 className='mt-2 mb-2'>No se ha podido generar el modelo 3D con las imágenes proporcionadas</h3>
+      <h3 className='mt-2 mb-2 text-danger'>No se ha podido generar el modelo 3D con las imágenes proporcionadas</h3>
       <p className='mt-3'>
         Consulte los <button className='btn btn-outline-dark btn-sm pb-2' onClick={() => setScreen('guia')}>consejos y la guía</button> del programa
       </p>

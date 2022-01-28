@@ -20,7 +20,7 @@ const CargarProyecto = ({setScreen}) => {
       <div className='d-flex justify-content-end'>
         <button onClick={handleClick} disabled={!selection} className='btn btn-outline-primary btn-sm'><CornerRightDown size={20} className='pb-1'/></button>
       </div>
-      <div style={{height: '230px', overflow: 'auto'}}>
+      <div style={{height: '230px', overflowY: 'auto', overflowX: 'hidden'}}>
         <table className="table">
           <tbody>
             <tr>

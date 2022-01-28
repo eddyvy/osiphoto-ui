@@ -19,6 +19,10 @@ const NuevoProyecto = ({setScreen, isOld}) => {
   }
 
   const handleSelect = (e) => {
+    if (e.target.id === selection) {
+      setSelection(null)
+      return
+    }
     setSelection(e.target.id)
   }
 
@@ -28,6 +32,7 @@ const NuevoProyecto = ({setScreen, isOld}) => {
 
   const handleRemove = () => {
     setNumberPhotos((oldNum) => (oldNum > 0) ? oldNum - 1 : 0)
+    setSelection(null)
   }
 
   const handleClickEdit = () => {
@@ -67,8 +72,8 @@ const NuevoProyecto = ({setScreen, isOld}) => {
         </div>
       `,
       showDenyButton: true,
-      confirmButtonText: 'V',
-      denyButtonText: `X`,
+      confirmButtonText: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+      denyButtonText: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>',
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('¡Guardado!', '', 'success')
@@ -80,6 +85,8 @@ const NuevoProyecto = ({setScreen, isOld}) => {
   }
 
   const handleAdvance = () => {
+    const minNumberOfPhotos = 3
+
     if (!name) {
       Swal.fire({
         icon: 'error',
@@ -89,11 +96,11 @@ const NuevoProyecto = ({setScreen, isOld}) => {
       return
     }
 
-    if (numberPhotos === 0) {
+    if (numberPhotos < minNumberOfPhotos) {
       Swal.fire({
         icon: 'error',
         title: 'Proyecto sin fotos!',
-        text: 'Debes agregar imágenes al proyecto',
+        text: `Debes agregar al menos ${minNumberOfPhotos} imágenes al proyecto`,
       })
       return
     }
@@ -125,7 +132,7 @@ const NuevoProyecto = ({setScreen, isOld}) => {
           <span className='me-3'>Imágenes</span>
           <button className='btn btn-outline-primary ms-1 me-1 btn-sm' onClick={handleAdd}><Plus size={20} className='pb-1'/></button>
           <button className='btn btn-outline-warning ms-1 me-1 btn-sm' disabled={selection === null} onClick={handleClickEdit}><Edit2 size={20} className='pb-1'/></button>
-          <button className='btn btn-outline-danger ms-1 me-1 btn-sm' onClick={handleRemove}><Minus size={20} className='pb-1'/></button>
+          <button className='btn btn-outline-danger ms-1 me-1 btn-sm' disabled={selection === null} onClick={handleRemove}><Minus size={20} className='pb-1'/></button>
           <div className='w-100'></div>
           <button className='btn btn-outline-success me-5 btn-sm flex-shrink-1' onClick={handleAdvance}><ArrowRight size={20} className='pb-1'/></button>
         </div>

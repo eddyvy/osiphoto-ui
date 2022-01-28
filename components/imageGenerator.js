@@ -4,7 +4,7 @@ const ImageGenerator = ({imageNumber, handleSelect, selection}) => {
   return (
     <div className='p-2' style={{height: '150px', overflow: 'auto'}}>
       {
-        Array(imageNumber).fill(null).map((value, idx) => {
+        Array(imageNumber).fill(null).map((_, idx) => {
           const imageNum = idx % 5 + 1
           return (<Image
             id={`image_${idx}`}

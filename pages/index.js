@@ -22,7 +22,6 @@ export default function Index() {
         icon: 'error',
         title: 'Error de acceso',
         text: 'El email o la contraseña son incorrectos',
-        footer: '<a href="">Si no tienes cuenta haz click aquí</a>'
       })
     }
   }

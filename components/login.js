@@ -8,7 +8,7 @@ const Login = ({handleLogin}) => {
     Swal.fire({
       icon: 'question',
       title: '¿Necesitas acceso?',
-      footer: '<a href="">Contacta con nosotros</a>'
+      footer: 'Contacta con nosotros'
     })
   }
 
